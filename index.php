@@ -43,9 +43,9 @@ $di->set(
     return new PdoMysql(
       [
         'host'     => 'localhost',
-        'username' => "root",
-        'password' => "",
-        'dbname'   => "apimerlin",
+        'username' => "antology",
+        'password' => "lesinsectessontnosamis",
+        'dbname'   => "francis_antology",
         "options" => array( // this is your important part
           1002 => 'SET NAMES utf8',
           PDO::ATTR_EMULATE_PREPARES => false,
