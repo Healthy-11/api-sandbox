@@ -43,7 +43,7 @@ $di->set(
     return new PdoMysql(
       [
         'host'     => 'localhost',
-        'username' => "antology",
+        'username' => "francis_antology",
         'password' => "lesinsectessontnosamis",
         'dbname'   => "francis_antology",
         "options" => array( // this is your important part
