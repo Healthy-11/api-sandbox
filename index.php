@@ -127,7 +127,7 @@ $app->post(
     else {
       $data = $app->request->getJsonRawBody();
 
-      $app->db->execute("INSERT INTO flight (type, specie, date, note) VALUES ('" . $data->type . "', '" . $data->specie . "', " . $data->date . ", '" . $data->note . "')");
+      $app->db->execute("INSERT INTO flight (type, specie, date, note) VALUES ('" . $data->type . "', '" . $data->specie . "', " . $data->date . ", '" . $data->note . "', '" . $data->userId . "')");
       return createJsonResponse(201, "Ok", "Fligh added");
     }
   }
@@ -146,7 +146,7 @@ $app->put(
     else {
       $data = $app->request->getJsonRawBody();
 
-      $app->db->execute("UPDATE flight SET type = '" . $data->type . "', specie = '" . $data->specie . "', date =  '" . $data->date . "', note = '" . $data->note . "' WHERE id =" . $id);
+      $app->db->execute("UPDATE flight SET type = '" . $data->type . "', specie = '" . $data->specie . "', date =  '" . $data->date . "', note = '" . $data->note . "', '" . $data->userId . "' WHERE id =" . $id);
       return createJsonResponse(200, "Ok", "Fligh updated");
     }
   }
