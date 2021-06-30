@@ -80,9 +80,17 @@ $app->get(
 $app->get(
   '/api/users',
   function () use ($app) {
+    $username = $app->request->getServer('PHP_AUTH_USER');
+    $password = $app->request->getServer('PHP_AUTH_PW');
+    $userData = getUserData($app, $username, $password);
+
+    if ($userData == null)
+      return createJsonResponse(403, "Credential error", "Unauthorized");
+
+    else{
     $phl = "SELECT * FROM users";
     $users = $app->db->fetchAll($phl);
-
+    }
     return createJsonResponse(200, "Ok", $users);
   }
 );
